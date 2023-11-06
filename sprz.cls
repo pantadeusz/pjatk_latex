@@ -4,6 +4,7 @@
 
 \RequirePackage[a4paper]{geometry}
 \RequirePackage{listings} %Aby dało się umieszczać kody źródłowe programów
+\RequirePackage[table]{xcolor}
 \RequirePackage{algorithmic} %Aby dało się umieszczać algorytmy
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{polski} % Włączenie obsługi polskich liter
@@ -13,8 +14,9 @@
 \RequirePackage{url}
 \RequirePackage{graphicx}
 \RequirePackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
+\RequirePackage{multirow}
+\RequirePackage{graphicx}
 
-\RequirePackage{pdfpages}
 
 \newcommand{\@nabstract}{\@latex@error{No \noexpand\@nabstract given}\@ehc}
 \newcommand{\nabstract}[1]{\renewcommand{\@nabstract}{#1}}
@@ -47,7 +49,33 @@
 \end{figure}
 }
 
-
+\newcommand{\stakeholder}[8]{
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|>{\columncolor{lightgray}}l|p{0.6\linewidth}|}
+      \hline
+      \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
+      \hline
+      \hline
+      Identyfikator: & #1 \\
+      \hline
+      Nazwa: & #2 \\
+      \hline
+      Opis: & #3 \\
+      \hline
+      Typ udziałowca: & #4 \\
+      \hline
+      Punkt widzenia: & #5 \\
+      \hline
+      Ograniczenia: & #6 \\
+      \hline
+      Wymagania: & #7 \\
+      \hline
+  \end{tabular}
+  \caption{#2}
+  \label{#8}
+\end{table}
+}
 
 \newcommand{\placetextbox}[4]{% \placetextbox{<offset top>}{<offset left/right>}{<align>}{<stuff>}
   \setbox0=\hbox{#4}% Put <stuff> in a box
