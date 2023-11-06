@@ -1,0 +1,57 @@
+\documentclass{sprz}
+
+\addbibresource{bibliography.bib}
+
+\title{Praca inżynierska o tym i owym}
+\engtitle{Something about this and that}
+\supervisor{dr Puźniakowski Tadeusz}
+\author{Nowak Jan}{s1234}
+\author{Doe John}{s1222}
+\author{Alice Bob}{s1299}
+\date{\today}
+\nabstract{To jest streszczenie niezwykle innowacyjnej pracy inżynierskiej w której przeplatają się elementy paplaniny z wygenerowanym tekstem pseudonaukowym rozpoznawanym jako dezinformacja.}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Informacje wstępne}
+
+
+
+\section{O projekcie}
+
+To jest przykładowy szablon pracy inżynierskiej na PJATK.
+
+\chapter{Przykładowe elementy}
+
+\section{Listingi}
+
+Jak załączać kod źródłowy jest pokazane na listingu~\ref{lst:helloworld}
+
+
+\begin{lstlisting}[language=c,caption={Przykładowy witaj w świecie}, label={lst:helloworld}]
+printf("hello");
+\end{lstlisting}
+
+\section{Obrazki}
+
+Na ilustracji~\ref{img:pjatklogo} widzimy oficjalne logo PJATK.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{sprz/pjatk}
+    \caption{Logo PJATK załączone jako obrazek}
+    \label{img:pjatklogo}
+\end{figure}
+
+albo dla wygody jako makro tak jak na obrazku~\ref{img:pjatklogo2}
+
+\putimage{Obrazek załączony za pomocą makra}{sprz/pjatk}{img:pjatklogo2}{0.5\textwidth}
+
+
+\printbibliography[title={Bibliografia}]
+
+\end{document}
