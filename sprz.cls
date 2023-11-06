@@ -19,6 +19,12 @@
 \newcommand{\@nabstract}{\@latex@error{No \noexpand\@nabstract given}\@ehc}
 \newcommand{\nabstract}[1]{\renewcommand{\@nabstract}{#1}}
 
+\newcommand{\@studfield}{\@latex@error{No \noexpand\@studfield given}\@ehc}
+\newcommand{\studfield}[1]{\renewcommand{\@studfield}{#1}}
+
+\newcommand{\@studtype}{\@latex@error{No \noexpand\@studtype given}\@ehc}
+\newcommand{\studtype}[1]{\renewcommand{\@studtype}{#1}}
+
 
 \newcommand{\@engtitle}{\@latex@error{No \noexpand\@engtitle given}\@ehc}
 \newcommand{\engtitle}[1]{\renewcommand{\@engtitle}{#1}}
@@ -62,7 +68,7 @@
   \vspace{1cm}
   \large
   \begin{tabularx}{\textwidth}{X r}
-      \textbf{Kierunek studiów:} & \textbf{Rodzaj studiów:}
+      \textbf{Kierunek studiów: \@studfield} & \textbf{Rodzaj studiów: \@studtype}
   \end{tabularx}
   \vspace{1cm}
   \huge
