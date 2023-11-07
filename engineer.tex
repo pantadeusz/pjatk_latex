@@ -57,27 +57,28 @@ albo dla wygody jako makro tak jak na obrazku~\ref{img:pjatklogo2}
 
 \chapter{Karty udziałowca}
 
-% \begin{table}[h]
-%     \centering
-%     \begin{tabular}{|>{\columncolor{lightgray}}l|p{0.6\linewidth}|}
-%         \hline
-%         \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
-%         \hline
-%         Identyfikator: & UOP 01 \\
-%         Nazwa: & Opiekun projektu \\
-%         Opis: & Osoba nadzorująca projekt \\
-%         Typ udziałowca: & Ożywiony pośredni \\
-%         Punkt widzenia: & Z perspektywy technicznej, opiekuna projektu, promotora \\
-%         Ograniczenia: & Brak \\
-%         Wymagania: & tu tylko symbole wymagań wyspecyfikowanych w rozdziale 3 \\
-%         \hline
-%     \end{tabular}
-%     %\caption{Karta udziałowca}
-%     \label{tab:karta_udzialowca}
-% \end{table}
+%\stakeholdertable{UOP 01}{Zespół projektowy}{To ci co robią projekt}{Ożywiony bezpośredni}{Właściciel projektu, główny wykonawca}{Tu jakieś ograniczenia}{Można tu się odnieść do innego rozdziału dotyczącego implementacji, na przykład~\ref{ch:wstep}}{tab:sh:firstone}
 
-\stakeholder{UOP 01}{Zespół projektowy}{To ci co robią projekt}{Ożywiony bezpośredni}{Właściciel projektu, główny wykonawca}{Tu jakieś ograniczenia}{Można tu się odnieść do innego rozdziału dotyczącego implementacji, na przykład~\ref{ch:wstep}}{tab:sh:firstone}
+
+\begin{stakeholder}
+    \tablabel{tab:stakeholder:someholder}
+    \tabcaption{Nazwa udziałowca wyświetlana pod tabelką}
+    \pjid{jednoznaczny symbol np. UOB 01, UOB 02 ... dla udziałowców ożywionych bezpośrednich, UNP 01... dla nieożywionych pośrednich itd.}
+    \pjname{nazwa udziałowca}
+    \pjdescription{opis udziałowca}
+    \pjtype{ożywiony/nieożywiony, bezpośredni/pośredni}
+    \pjviewpoint{z jakiej perspektywy patrzy udziałowiec np. technicznej, ekonomicznej, operatora systemu itp.}
+    \pjlimits{ograniczenia udziałowca np. administrator nie powinien specyfikować wymagań finansowych}
+    \pjrequ{tu tylko symbole wymagań wyspecyfikowanych w rozdziale 3}
+\end{stakeholder}
+
+
+\chapter{Wymagania wszelakie}
+
 
 \printbibliography[title={Bibliografia}]
+
+
+
 
 \end{document}

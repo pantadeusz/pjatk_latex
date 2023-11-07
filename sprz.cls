@@ -49,33 +49,133 @@
 \end{figure}
 }
 
-\newcommand{\stakeholder}[8]{
+% \newcommand{\stakeholdertable}[8]{
+% \begin{table}[h]
+%   \centering
+%   \begin{tabular}{|>{\columncolor{lightgray}}l|p{0.6\linewidth}|}
+%       \hline
+%       \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
+%       \hline
+%       \hline
+%       Identyfikator: & #1 \\
+%       \hline
+%       Nazwa: & #2 \\
+%       \hline
+%       Opis: & #3 \\
+%       \hline
+%       Typ udziałowca: & #4 \\
+%       \hline
+%       Punkt widzenia: & #5 \\
+%       \hline
+%       Ograniczenia: & #6 \\
+%       \hline
+%       Wymagania: & #7 \\
+%       \hline
+%   \end{tabular}
+%   \caption{#2}
+%   \label{#8}
+% \end{table}
+% }
+
+\newcommand{\pjid}[1]{Identyfikator: & #1 \\ \hline}
+\newcommand{\pjname}[1]{Nazwa:: & #1 \\ \hline}
+\newcommand{\pjdescription}[1]{Opis:: & #1 \\ \hline}
+\newcommand{\pjtype}[1]{Typ udziałowca:: & #1 \\ \hline}
+\newcommand{\pjviewpoint}[1]{Punkt widzenia:: & #1 \\ \hline}
+\newcommand{\pjlimits}[1]{Ograniczenia:: & #1 \\ \hline}
+\newcommand{\pjrequ}[1]{Wymagania:: & #1 \\ \hline}
+\newcommand{\@tablabel}{}
+\newcommand{\tablabel}[1]{\renewcommand{\@tablabel}{\label{#1}}}
+\newcommand{\@tabcaption}{}
+\newcommand{\tabcaption}[1]{\renewcommand{\@tabcaption}{\caption{#1}}}
+
+
+% Define the new environment 'stakeholder' and custom commands for stakeholders' information
+\newenvironment{stakeholder}{%
+    \table[h]
+    \centering
+    \begin{tabular}{|>{\columncolor{lightgray}}c|p{0.6\linewidth}|}
+    \hline
+    \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
+    \hline
+}{%
+    \end{tabular}
+    \@tablabel
+    \@tabcaption
+    \endtable
+}
+
+
+
+
+
+
+
+
+
+
+
+\newcommand{\generalrequirement}[7]{
 \begin{table}[h]
   \centering
-  \begin{tabular}{|>{\columncolor{lightgray}}l|p{0.6\linewidth}|}
+  \begin{tabular}{|>{\columncolor{lightgray}}l|l|>{\columncolor{lightgray}}l|p{0.1\linewidth}|}
       \hline
-      \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
+      \rowcolor{lightgray}\multicolumn{4}{|c|}{\textbf{KARTA WYMAGANIA}} \\
       \hline
       \hline
-      Identyfikator: & #1 \\
+      Identyfikator: & #1 & Priorytet: & #2 \\
       \hline
-      Nazwa: & #2 \\
+      Nazwa: & \multicolumn{3}{|p{0.6\linewidth}|}{#3} \\
       \hline
-      Opis: & #3 \\
+      Opis: & \multicolumn{3}{|p{0.6\linewidth}|}{#4} \\
       \hline
-      Typ udziałowca: & #4 \\
+      Udziałowiec: & \multicolumn{3}{|p{0.6\linewidth}|}{#5}\\
       \hline
-      Punkt widzenia: & #5 \\
-      \hline
-      Ograniczenia: & #6 \\
-      \hline
-      Wymagania: & #7 \\
+      Wymagania powiązane: & \multicolumn{3}{|p{0.6\linewidth}|}{#6} \\
       \hline
   \end{tabular}
-  \caption{#2}
-  \label{#8}
+  \caption{#3}
+  \label{#7}
 \end{table}
 }
+
+
+% \newcommand{\functionalrequirement}[13]{
+% \begin{table}[h]
+%   \centering
+%   \begin{tabular}{|>{\columncolor{lightgray}}l|l|>{\columncolor{lightgray}}l|p{0.1\linewidth}|}
+%       \hline
+%       \rowcolor{lightgray}\multicolumn{4}{|c|}{\textbf{KARTA WYMAGANIA}} \\
+%       \hline
+%       \hline
+%       Identyfikator: & #1 & Priorytet: & #2 \\
+%       \hline
+%       Nazwa: & \multicolumn{3}{|p{0.6\linewidth}|}{#3} \\
+%       \hline
+%       Opis: & \multicolumn{3}{|p{0.6\linewidth}|}{#4} \\
+%       \hline
+%       Kryteria akceptacji & \multicolumn{3}{|p{0.6\linewidth}|}{#5} \\
+%       \hline
+%       Dane wejściowe & \multicolumn{3}{|p{0.6\linewidth}|}{#6} \\
+%       \hline
+%       Warunki początkowe & \multicolumn{3}{|p{0.6\linewidth}|}{#7} \\
+%       \hline
+%       Warunki końcowe & \multicolumn{3}{|p{0.6\linewidth}|}{#8} \\
+%       \hline
+%       Sytuacje wyjątkowe & \multicolumn{3}{|p{0.6\linewidth}|}{#9} \\
+%       \hline
+%       Szczegóły implementacji & \multicolumn{3}{|p{0.6\linewidth}|}{#10} \\
+%       \hline
+%       Udziałowiec & \multicolumn{3}{|p{0.6\linewidth}|}{#11} \\
+%       \hline
+%       Wymagania powiązane & \multicolumn{3}{|p{0.6\linewidth}|}{#12} \\
+%       \hline
+%   \end{tabular}
+%   \caption{#3}
+%   \label{#13}
+% \end{table}
+% }
+
 
 \newcommand{\placetextbox}[4]{% \placetextbox{<offset top>}{<offset left/right>}{<align>}{<stuff>}
   \setbox0=\hbox{#4}% Put <stuff> in a box
