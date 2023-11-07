@@ -57,24 +57,29 @@ albo dla wygody jako makro tak jak na obrazku~\ref{img:pjatklogo2}
 
 \chapter{Karty udziałowca}
 
-%\stakeholdertable{UOP 01}{Zespół projektowy}{To ci co robią projekt}{Ożywiony bezpośredni}{Właściciel projektu, główny wykonawca}{Tu jakieś ograniczenia}{Można tu się odnieść do innego rozdziału dotyczącego implementacji, na przykład~\ref{ch:wstep}}{tab:sh:firstone}
 
-
-\begin{stakeholder}
-    \tablabel{tab:stakeholder:someholder}
-    \tabcaption{Nazwa udziałowca wyświetlana pod tabelką}
-    \pjid{jednoznaczny symbol np. UOB 01, UOB 02 ... dla udziałowców ożywionych bezpośrednich, UNP 01... dla nieożywionych pośrednich itd.}
-    \pjname{nazwa udziałowca}
-    \pjdescription{opis udziałowca}
-    \pjtype{ożywiony/nieożywiony, bezpośredni/pośredni}
-    \pjviewpoint{z jakiej perspektywy patrzy udziałowiec np. technicznej, ekonomicznej, operatora systemu itp.}
-    \pjlimits{ograniczenia udziałowca np. administrator nie powinien specyfikować wymagań finansowych}
-    \pjrequ{tu tylko symbole wymagań wyspecyfikowanych w rozdziale 3}
+\begin{stakeholder}[label={tab:stakeholder:someholder},caption={Przykładowy opis udzialowca}]
+    \id{jednoznaczny symbol np. UOB 01, UOB 02 ... dla udziałowców ożywionych bezpośrednich, UNP 01... dla nieożywionych pośrednich itd.}
+    \name{nazwa udziałowca}
+    \descr{opis udziałowca}
+    \type{ożywiony/nieożywiony, bezpośredni/pośredni}
+    \viewpoint{z jakiej perspektywy patrzy udziałowiec np. technicznej, ekonomicznej, operatora systemu itp.}
+    \limitations{ograniczenia udziałowca np. administrator nie powinien specyfikować wymagań finansowych}
+    \requ{tu tylko symbole wymagań wyspecyfikowanych w rozdziale 3}
 \end{stakeholder}
-
 
 \chapter{Wymagania wszelakie}
 
+Na tabeli \ref{tab:requirements:general} pokazano jak można definiować wymagania ogólne lub dziedzinowe.
+
+\begin{requirementstab}[label={tab:requirements:general},caption={Przykładowe wymaganie ogólne lub dziedzinowe}]
+    \id{jednoznaczny symbol np. WO1, WO2 .. } 
+    \priority{ważność wymagania, np. wg skali MoSCoW: M – must (musi być) S – should (powinno być) C – could (może być) W – won't (nie będzie – nie będzie implementowane w danym wydaniu, ale może być rozpatrzone w przyszłości )}
+    \name{krótki opis} 
+    \descr{opis szczegółowy, należy dążyć do tego, żeby wszystkie znane na ten moment szczegóły wymagania zostały wydobyte i wyspecyfikowane} 
+    \sholder{nazwa udziałowca, który podał wymaganie} 
+    \reqrelated{wymagania zależne i uszczegóławiające – odesłanie poprzez identyfikator} 
+\end{requirementstab}
 
 \printbibliography[title={Bibliografia}]
 

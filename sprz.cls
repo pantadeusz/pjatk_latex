@@ -49,49 +49,21 @@
 \end{figure}
 }
 
-% \newcommand{\stakeholdertable}[8]{
-% \begin{table}[h]
-%   \centering
-%   \begin{tabular}{|>{\columncolor{lightgray}}l|p{0.6\linewidth}|}
-%       \hline
-%       \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
-%       \hline
-%       \hline
-%       Identyfikator: & #1 \\
-%       \hline
-%       Nazwa: & #2 \\
-%       \hline
-%       Opis: & #3 \\
-%       \hline
-%       Typ udziałowca: & #4 \\
-%       \hline
-%       Punkt widzenia: & #5 \\
-%       \hline
-%       Ograniczenia: & #6 \\
-%       \hline
-%       Wymagania: & #7 \\
-%       \hline
-%   \end{tabular}
-%   \caption{#2}
-%   \label{#8}
-% \end{table}
-% }
 
-\newcommand{\pjid}[1]{Identyfikator: & #1 \\ \hline}
-\newcommand{\pjname}[1]{Nazwa:: & #1 \\ \hline}
-\newcommand{\pjdescription}[1]{Opis:: & #1 \\ \hline}
-\newcommand{\pjtype}[1]{Typ udziałowca:: & #1 \\ \hline}
-\newcommand{\pjviewpoint}[1]{Punkt widzenia:: & #1 \\ \hline}
-\newcommand{\pjlimits}[1]{Ograniczenia:: & #1 \\ \hline}
-\newcommand{\pjrequ}[1]{Wymagania:: & #1 \\ \hline}
-\newcommand{\@tablabel}{}
-\newcommand{\tablabel}[1]{\renewcommand{\@tablabel}{\label{#1}}}
-\newcommand{\@tabcaption}{}
-\newcommand{\tabcaption}[1]{\renewcommand{\@tabcaption}{\caption{#1}}}
 
+\define@key{pjatk}{label}{\def\tablabel{#1}}
+\define@key{pjatk}{caption}{\def\tabcaption{#1}}
 
 % Define the new environment 'stakeholder' and custom commands for stakeholders' information
-\newenvironment{stakeholder}{%
+\newenvironment{stakeholder}[1][]{%
+    \setkeys{pjatk}{#1}% Setting default key values
+    \newcommand{\id}[1]{Identyfikator: & ##1 \\ \hline}
+    \newcommand{\name}[1]{Nazwa:: & ##1 \\ \hline}
+    \newcommand{\descr}[1]{Opis:: & ##1 \\ \hline}
+    \newcommand{\type}[1]{Typ udziałowca:: & ##1 \\ \hline}
+    \newcommand{\viewpoint}[1]{Punkt widzenia:: & ##1 \\ \hline}
+    \newcommand{\limitations}[1]{Ograniczenia:: & ##1 \\ \hline}
+    \newcommand{\requ}[1]{Wymagania:: & ##1 \\ \hline}
     \table[h]
     \centering
     \begin{tabular}{|>{\columncolor{lightgray}}c|p{0.6\linewidth}|}
@@ -100,16 +72,36 @@
     \hline
 }{%
     \end{tabular}
-    \@tablabel
-    \@tabcaption
+    %\@tablabel
+    %\@tabcaption
+    \caption{\tabcaption}
+    \label{\tablabel}
     \endtable
 }
 
 
 
-
-
-
+% Define the new environment 'stakeholder' and custom commands for stakeholders' information
+\newenvironment{requirementstab}[1][]{%
+    \setkeys{pjatk}{#1}% Setting default key values
+    \newcommand{\id}[1]{Identyfikator: & ##1 & }
+    \newcommand{\priority}[1]{Priorytet: & ##1 \\ \hline}
+    \newcommand{\name}[1]{Nazwa: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
+    \newcommand{\descr}[1]{Opis: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
+    \newcommand{\sholder}[1]{Udziałowiec: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
+    \newcommand{\reqrelated}[1]{Wymagania powiązane: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
+    \table[h]
+    \centering
+    \begin{tabular}{|>{\columncolor{lightgray}}l|l|>{\columncolor{lightgray}}l|p{0.1\linewidth}|}
+    \hline
+    \rowcolor{lightgray}\multicolumn{4}{|c|}{\textbf{KARTA WYMAGANIA}} \\
+    \hline
+}{%
+    \end{tabular}
+    \caption{\tabcaption}
+    \label{\tablabel}
+    \endtable
+}
 
 
 
