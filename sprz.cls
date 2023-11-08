@@ -2,6 +2,7 @@
 % This is the class for PJATK thesis
 %
 % Tadeusz Puźniakowski 2023
+% Ian Canals-Wąsik (title page draft)
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{sprz}[2023/10/27 SPRZ]
