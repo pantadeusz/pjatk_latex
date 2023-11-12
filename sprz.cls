@@ -15,13 +15,13 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{polski} % Włączenie obsługi polskich liter
 \RequirePackage{tabularx}
-\RequirePackage[backend=bibtex,style=numeric,sorting=none]{biblatex}
+\RequirePackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \RequirePackage{url}
 \RequirePackage{graphicx}
 \RequirePackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
 \RequirePackage{multirow}
 \RequirePackage{graphicx}
-
+\RequirePackage{csquotes}
 
 \newcommand{\@nabstract}{\@latex@error{No \noexpand\@nabstract given}\@ehc}
 \newcommand{\nabstract}[1]{\renewcommand{\@nabstract}{#1}}
