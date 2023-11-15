@@ -32,5 +32,6 @@ You can PR with proposed changes. You should quite clearly describe what does th
 
 # Authors
 
-Tadeusz Puźniakowski
-Ian Canals-Wąsik (title page draft)
+* Tadeusz Puźniakowski
+* Ian Canals-Wąsik (title page draft)
+* Mateusz Budzisz (minor fixes)
