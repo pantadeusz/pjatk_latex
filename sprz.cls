@@ -105,7 +105,7 @@
 	\newcommand{\viewpoint}[1]{Punkt widzenia:: & ##1 \\ \hline}
 	\newcommand{\limitations}[1]{Ograniczenia:: & ##1 \\ \hline}
 	\newcommand{\requ}[1]{Wymagania:: & ##1 \\ \hline}
-	\table[h]
+	\table[H]
 	\centering
 	\begin{tabular}{|>{\columncolor{lightgray}}c|p{0.6\linewidth}|}
 		\hline
@@ -134,7 +134,7 @@
 \newcommand{\implementation}[1]{Szczegóły implementacji: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
 \newcommand{\sholder}[1]{Udziałowiec: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
 \newcommand{\reqrelated}[1]{Wymagania powiązane: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
-\table[h]
+\table[H]
 \centering
 \begin{tabular}{|>{\columncolor{lightgray}}l|l|>{\columncolor{lightgray}}l|p{0.1\linewidth}|}
 	\hline
