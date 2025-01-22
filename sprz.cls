@@ -6,8 +6,8 @@
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{sprz}[2023/10/27 SPRZ]
-\LoadClass{report}
-
+\LoadClass[12pt,a4paper]{report}
+\renewcommand{\baselinestretch}{1.5} 
 \RequirePackage[a4paper]{geometry}
 \RequirePackage{listings} %Aby dało się umieszczać kody źródłowe programów
 \RequirePackage[table]{xcolor}
@@ -67,10 +67,15 @@
 
 
 \newcommand{\@authors}{}
+\newcommand{\@authorstp}{}
 \newcommand{\@authorstablerows}{}
+\newcommand{\@authorattachment}{}
+
 \renewcommand{\author}[4]{%
 	\expandafter\g@addto@macro\expandafter\@authors\expandafter{#1 & #2 \\ \hline}
+	\expandafter\g@addto@macro\expandafter\@authorstp\expandafter{\textbf{#1} \\ Nr albumu #2 \\ Nazwa specjalizacji: #3 \\}
 	\expandafter\g@addto@macro\expandafter\@authorstablerows\expandafter{#1 & #2 & #3 & #4 \\ \hline}
+	\expandafter\g@addto@macro\expandafter\@authorattachment\expandafter{#1\_}
 }
 
 \newcommand{\@consultants}{}
@@ -78,6 +83,14 @@
 	\expandafter\g@addto@macro\expandafter\@consultants\expandafter{\item #1
 	}
 }
+
+\newcommand{\@nkeywords}{}
+\newcommand{\@nkeywordscoma}{}
+\newcommand{\keyword}[1]{%
+	\expandafter\g@addto@macro\expandafter\@nkeywords\expandafter{\@nkeywordscoma#1}
+	\renewcommand{\@nkeywordscoma}{, }
+}
+
 
 
 
@@ -189,41 +202,38 @@
 
 
 \renewcommand{\maketitle}{%
+    \renewcommand{\baselinestretch}{1.0}
 	\begin{titlepage}
 		\begin{center}
-			\includegraphics[width=0.8\textwidth]{sprz/pjatk}
-			\vspace{1cm}
-			\large
-			\begin{tabularx}{\textwidth}{X r}
-				\textbf{Kierunek studiów: \@studfield} & \textbf{Rodzaj studiów: \@studtype}
-			\end{tabularx}
-			\vspace{1cm}
+			\includegraphics[width=1.0\textwidth]{sprz/pjatk} \\
+			~ \\
+			%\large
+			\textbf{Wydział Informatyki} \\
+			\textbf{Filia w Gdańsku} \\
+			~ \\
+			\@authorstp
+			%\large
 			\huge
-			\textbf{Praca dyplomowa}
-		\end{center}
-
-		\large
-		\textbf{\\Temat pracy: \@title} \\
-		\textbf{Temat w języku angielskim: \@engtitle} \\
-		\textbf{Opiekun pracy: \@supervisor} \\
-		\textbf{Wykonawcy:}
-		\begin{center}
-			\begin{tabularx}{0.8\textwidth}{|X|X|}
-				\hline
-				\textbf{Nazwisko, imie} & \textbf{Nr albumu} \\
-				\hline
-				\@authors
+			\textbf{\@title}
+			\\
+			\normalsize
+			~ \\
+			\begin{tabularx}{\textwidth}{X l}
+				~ & Rodzaj pracy \\
+				~ & ~~inżynierska \\
+				~ & Imię i nazwisko promotora \\
+				~ & ~~\@supervisor
 			\end{tabularx}
-		\end{center}
-		\vspace{1cm}
-		\textbf{\\Streszczenie:}
-
-		\@nabstract
-		\begin{center}
 			\vfill{\textbf{Gdańsk, \@date}}
-		\end{center}
+\end{center}
+\newpage
+		\textbf{\\Streszczenie:}
+		\@nabstract
+		\textbf{\\Słowa kluczowe:}
+		\@nkeywords
 		\newpage
 	\end{titlepage}
+	\renewcommand{\baselinestretch}{1.0}
 }
 \newcommand{\@mysmartparbox}[2]{%
 	\parbox{#1}{\vspace{0.1cm}#2\vspace{0.1cm}}%
@@ -288,6 +298,7 @@
 	\end{center}
 	\newpage
 }
+
 \newcommand{\makedeclaration}{%
 	\begin{center}
 		\textbf{Oświadczenie autorów pracy dyplomowej}
@@ -298,6 +309,27 @@
 	\par Oświadczamy ponadto, że niniejsza wersja pracy dyplomowej jest identyczna z załączoną wersją elektroniczną.
 	\newpage
 }
+
+
+\newcommand{\makethesisattachments}{%
+\chapter*{Załączniki}
+
+Płyta CD z następującą zawartością:
+\begin{itemize}
+    \item {\em{pliki projektowe}} -- pliki składające się na całość projektu
+	\begin{itemize}
+		\item repozytorium kodu źródłowego wraz z instrukcją zbudowania i uruchomienia projektu
+		\item źródło pracy inżynierskiej.
+	\end{itemize}
+    \item {\em{\@authorattachment%
+praca pisemna}} -- katalog zawierający plik PDF z pracą inżynierską.
+\end{itemize}
+
+\newpage
+}
+
+
+
 
 \lstset{
 belowcaptionskip=1\baselineskip,
