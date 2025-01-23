@@ -242,11 +242,12 @@
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{sprz/pjatk} \\
 		{
-		\Huge
+		\large
 		\textbf{Karta projektu}
 		}
 	\end{center}
-
+	{
+	\small
 	\begin{center}
 		\begin{tabular}{|c|c||c|}
 			\hline
@@ -263,13 +264,12 @@
 				\@titledate
 			}                                                                                                     \\
 			\hline
-			\multicolumn{2}{|p{0.8\linewidth}|}{\textbf{Promotor:}
-
-			\@supervisor}      & \@mysmartparbox{0.2\linewidth}{\textbf{Konsultanci:}
-			\begin{enumerate}
+			\multicolumn{2}{|p{0.8\linewidth}|}{\textbf{Promotor:}}      & \@mysmartparbox{0.2\linewidth}{\textbf{Konsultanci:}} \\
+			\multicolumn{2}{|p{0.8\linewidth}|}{\@supervisor}      & \@mysmartparbox{0.2\linewidth}{\begin{enumerate}
 					\@consultants
 				\end{enumerate}}                                                                           \\
 			\hline
+
 			\multicolumn{3}{|p{1\linewidth}|}{\textbf{Cele projektu:}
 
 			\@projectgoals}                                                                                       \\ \hline
@@ -296,6 +296,7 @@
 			\@authorstablerows
 		\end{tabular}
 	\end{center}
+	}
 	\newpage
 }
 
