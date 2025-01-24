@@ -302,12 +302,9 @@
 
 \newcommand{\makedeclaration}{%
 	\begin{center}
-		\textbf{Oświadczenie autorów pracy dyplomowej}
+		\textbf{DEPRECATED}
+		Według nowych wytycznych nie umieszczamy w pracy deklaracji. Proszę usunąć komendę \\makedeclaration
 	\end{center}
-	\vspace{1cm}
-	\par Świadomi odpowiedzialności prawnej oświadczamy, że niniejszą pracę dyplomową w zakresie przedstawionym przez nasz zespół projektowy wykonaliśmy samodzielnie i nie zawiera ona treści uzyskanych w sposób niezgodny z obowiązującymi przepisami.
-	\par Oświadczamy również, że praca w przedstawionym przez nas zakresie nie była wcześniej przedmiotem procedur związanych z uzyskaniem tytułu ukończenia studiów wyższych.
-	\par Oświadczamy ponadto, że niniejsza wersja pracy dyplomowej jest identyczna z załączoną wersją elektroniczną.
 	\newpage
 }
 
