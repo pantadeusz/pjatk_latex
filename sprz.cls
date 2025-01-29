@@ -24,6 +24,7 @@
 
 \DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,
    unpublished,techreport,misc,book]{title}{,,#1''}
+% {title}{\mkbibquote{#1}}
 
 \newcommand{\@nabstract}{\@latex@error{No \noexpand\@nabstract given}\@ehc}
 \newcommand{\nabstract}[1]{\renewcommand{\@nabstract}{#1}}
