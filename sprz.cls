@@ -20,6 +20,10 @@
 \RequirePackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
 \RequirePackage{multirow}
 \RequirePackage{graphicx}
+\RequirePackage[backend=biber,style=numeric,sorting=none]{biblatex}
+
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,
+   unpublished,techreport,misc,book]{title}{,,#1''}
 
 \newcommand{\@nabstract}{\@latex@error{No \noexpand\@nabstract given}\@ehc}
 \newcommand{\nabstract}[1]{\renewcommand{\@nabstract}{#1}}
