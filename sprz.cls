@@ -45,6 +45,14 @@
 \newcommand{\@titledate}{\@latex@error{No \noexpand\@titledate given}\@ehc}
 \newcommand{\titledate}[1]{\renewcommand{\@titledate}{#1}}
 
+\newcommand{\@reviewer}{\@latex@error{No \noexpand\@reviewer given}\@ehc}
+\newcommand{\reviewer}[1]{\renewcommand{\@reviewer}{#1}}
+
+
+\newcommand{\@finishdate}{\@latex@error{No \noexpand\@finishdate given}\@ehc}
+\newcommand{\finishdate}[1]{\renewcommand{\@finishdate}{#1}}
+
+
 
 
 \newcommand{\@productsandservices}{\@latex@error{No \noexpand\@productsandservices given}\@ehc}
@@ -256,11 +264,14 @@
 	\begin{center}
 		\begin{tabular}{|c|c||c|}
 			\hline
-			\multicolumn{2}{|p{0.8\linewidth}|}{
-			\textbf{Temat projektu:}
+			\multicolumn{2}{|p{0.7\linewidth}|}{\textbf{Temat projektu:}
 
 			\@title
-			}                  & \@mysmartparbox{0.2\linewidth}{\textbf{Akronim:}
+
+			\textbf{Temat projektu po angielsku:}
+
+			\@engtitle
+			} & \@mysmartparbox{0.3\linewidth}{\textbf{Akronim:}
 
 				\@acronym
 
@@ -269,8 +280,8 @@
 				\@titledate
 			}                                                                                                     \\
 			\hline
-			\multicolumn{2}{|p{0.8\linewidth}|}{\textbf{Promotor:}}      & \@mysmartparbox{0.2\linewidth}{\textbf{Konsultanci:}} \\
-			\multicolumn{2}{|p{0.8\linewidth}|}{\@supervisor}      & \@mysmartparbox{0.2\linewidth}{\begin{enumerate}
+			\multicolumn{2}{|p{0.7\linewidth}|}{\textbf{Promotor:}}      & \@mysmartparbox{0.3\linewidth}{\textbf{Konsultanci:}} \\
+			\multicolumn{2}{|p{0.7\linewidth}|}{\@supervisor}      & \@mysmartparbox{0.3\linewidth}{\begin{enumerate}
 					\@consultants
 				\end{enumerate}}                                                                           \\
 			\hline
@@ -278,12 +289,13 @@
 			\multicolumn{3}{|p{1\linewidth}|}{\textbf{Cele projektu:}
 
 			\@projectgoals}                                                                                       \\ \hline
-			Rezultaty i zakres & \multicolumn{2}{|p{0.6\linewidth}|}{\textbf{Oczekiwane produkty/usługi:}
 
-			\@productsandservices}                                                                                \\
-			{}                 & \multicolumn{2}{|p{0.6\linewidth}|}{\textbf{Główne funkcjonalności i/lub cechy:}
+			\multicolumn{3}{|p{1\linewidth}|}{\textbf{Rezultaty projektu:}
 
-			\@mainfunctionalities}                                                                                \\       \hline
+			\@productsandservices
+
+			\@mainfunctionalities}                                                                                       \\ \hline
+
 			\multicolumn{3}{|p{1\linewidth}|}{\textbf{Miary sukcesu:}
 
 			\@successmeasure}                                                                                     \\ \hline
@@ -301,6 +313,19 @@
 			\@authorstablerows
 		\end{tabular}
 	\end{center}
+
+	\begin{center}
+		\begin{tabular}{|p{0.4\linewidth}|p{0.6\linewidth}|}
+			\hline
+			\textbf{Data ukończenia projektu:} 
+			
+			\@finishdate & \textbf{Recenzent:} 
+			
+			\@reviewer \\
+			\hline
+		\end{tabular}
+	\end{center}
+
 	}
 	\newpage
 }
