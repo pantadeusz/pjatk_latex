@@ -7,7 +7,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{sprz}[2023/10/27 SPRZ]
 \LoadClass[12pt,a4paper]{report}
-\renewcommand{\baselinestretch}{1.5} 
+\renewcommand{\baselinestretch}{1.3} 
 \RequirePackage[a4paper]{geometry}
 \RequirePackage{listings} %Aby dało się umieszczać kody źródłowe programów
 \RequirePackage[table]{xcolor}
