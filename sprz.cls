@@ -21,6 +21,18 @@
 % Per PJATK guidelines: captions above tables and figures
 \captionsetup[table]{position=top}
 \captionsetup[figure]{position=top}
+
+% Source attribution for tables and figures (PJATK guidelines)
+\newcommand{\figuresource}[1]{%
+    \par\vspace{-0.5\baselineskip}
+    {\small Źródło: #1.}
+}
+
+\newcommand{\tablesource}[1]{%
+    \par\vspace{-0.5\baselineskip}
+    {\small Źródło: #1.}
+}
+
 \RequirePackage{tabularx}
 \RequirePackage{url}
 \RequirePackage{graphicx}
@@ -130,12 +142,14 @@
 
 
 
-\newcommand{\putimage}[4]{%
+\newcommand{\putimage}[5][]{%
 	\begin{figure}[h!]
 		\centering
-		\caption{#1}
-		\label{#3}
-		\includegraphics[width={#4}]{#2}
+		\caption{#2}
+		\label{#4}
+		\includegraphics[width={#5}]{#3}
+		\if\relax\detokenize{#1}\relax\else
+		\figuresource{#1}\fi
 	\end{figure}
 }
 
