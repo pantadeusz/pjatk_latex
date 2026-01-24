@@ -7,20 +7,43 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{sprz}[2023/10/27 SPRZ]
 \LoadClass[12pt,a4paper]{report}
-\renewcommand{\baselinestretch}{1.3} 
-\RequirePackage[a4paper]{geometry}
+\renewcommand{\baselinestretch}{1.5} 
+\RequirePackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
 \RequirePackage{listings} %Aby dało się umieszczać kody źródłowe programów
 \RequirePackage[table]{xcolor}
 \RequirePackage{algorithmic} %Aby dało się umieszczać algorytmy
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{polski} % Włączenie obsługi polskich liter
+\RequirePackage{times}
+\RequirePackage{sectsty}
+\RequirePackage[font=small,labelfont=bf]{caption}
+\captionsetup{labelsep=space}
+% Per PJATK guidelines: captions above tables and figures
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=top}
 \RequirePackage{tabularx}
 \RequirePackage{url}
 \RequirePackage{graphicx}
 \RequirePackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
 \RequirePackage{multirow}
 \RequirePackage{graphicx}
-\RequirePackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\RequirePackage[backend=biber,style=verbose-note,sorting=nty,autocite=footnote]{biblatex}
+
+% Configure Polish bibliography style
+\DeclareFieldFormat{postnote}{s.~#1}
+\renewcommand*{\newunitpunct}{\addcomma\space}
+
+\chapterfont{\fontsize{14}{16.8}\selectfont\bfseries}
+\sectionfont{\fontsize{12}{14.4}\selectfont\bfseries}
+\subsectionfont{\fontsize{12}{14.4}\selectfont\bfseries}
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+% Remove dots after section numbers in TOC and headings
+\RequirePackage{titlesec}
+\titlelabel{\thetitle\quad}
 
 \DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,
    unpublished,techreport,misc,book]{title}{,,#1''}
@@ -109,10 +132,10 @@
 
 \newcommand{\putimage}[4]{%
 	\begin{figure}[h!]
-		\label{#3}
 		\centering
-		\includegraphics[width={#4}]{#2}
 		\caption{#1}
+		\label{#3}
+		\includegraphics[width={#4}]{#2}
 	\end{figure}
 }
 
@@ -133,14 +156,14 @@
 	\newcommand{\requ}[1]{Wymagania: & ##1 \\ \hline}
 	\table[h!]
 	\centering
+	\caption{\tabcaption}
+	\label{\tablabel}
 	\begin{tabular}{|>{\columncolor{lightgray}}c|p{0.6\linewidth}|}
 		\hline
 		\rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{KARTA UDZIAŁOWCA}} \\
 		\hline
 		}{%
 	\end{tabular}
-	\caption{\tabcaption}
-	\label{\tablabel}
 	\endtable
 }
 
@@ -162,14 +185,14 @@
 \newcommand{\reqrelated}[1]{Wymagania powiązane: & \multicolumn{3}{|p{0.6\linewidth}|}{##1}  \\ \hline}
 \table[h!]
 \centering
+\caption{\tabcaption}
+\label{\tablabel}
 \begin{tabular}{|>{\columncolor{lightgray}}l|l|>{\columncolor{lightgray}}l|p{0.1\linewidth}|}
 	\hline
 	\rowcolor{lightgray}\multicolumn{4}{|c|}{\textbf{KARTA WYMAGANIA}} \\
 	\hline
 	}{%
 \end{tabular}
-\caption{\tabcaption}
-\label{\tablabel}
 \endtable
 }
 
@@ -180,6 +203,8 @@
 \newcommand{\generalrequirement}[7]{
 	\begin{table}[h!]
 		\centering
+		\caption{#3}
+		\label{#7}
 		\begin{tabular}{|>{\columncolor{lightgray}}l|l|>{\columncolor{lightgray}}l|p{0.1\linewidth}|}
 			\hline
 			\rowcolor{lightgray}\multicolumn{4}{|c|}{\textbf{KARTA WYMAGANIA}}               \\
@@ -196,8 +221,6 @@
 			Wymagania powiązane: & \multicolumn{3}{|p{0.6\linewidth}|}{#6}                   \\
 			\hline
 		\end{tabular}
-		\caption{#3}
-		\label{#7}
 	\end{table}
 }
 
@@ -215,7 +238,7 @@
 
 
 \renewcommand{\maketitle}{%
-    \renewcommand{\baselinestretch}{1.0}
+    \renewcommand{\baselinestretch}{1.5}
 	\begin{titlepage}
 		\begin{center}
 			\includegraphics[width=1.0\textwidth]{sprz/pjatk} \\
